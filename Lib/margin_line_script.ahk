@@ -1,4 +1,4 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
@@ -21,7 +21,8 @@ LAYER_REDBOX()
 WinActivate, ESPRIT
 list_search.layer("0DEG 마진", "combobox2", "ESPRIT")
 DEG.DEG0()
-ICON.TOOL("ICON_MARGIN_LINE.PNG")
+
+TOOL.MARGIN_TOOL()
 ;back to original pos for mouse, screen mode
 coordmode, mouse
 mousemove, %xo%, %yo%
@@ -66,7 +67,7 @@ LAYER_REDBOX()
 WinActivate, ESPRIT
 list_search.layer("90DEG 마진", "combobox2", "ESPRIT")
 DEG.DEG90()
-ICON.TOOL("ICON_MARGIN_LINE.PNG")
+TOOL.MARGIN_TOOL()
 ;back to original pos for mouse, screen mode
 coordmode, mouse
 mousemove, %xo%, %yo%
@@ -114,7 +115,7 @@ LAYER_REDBOX()
 WinActivate, ESPRIT
 list_search.layer("180DEG 마진", "combobox2", "ESPRIT")
 DEG.DEG180()
-ICON.TOOL("ICON_MARGIN_LINE.PNG")
+TOOL.MARGIN_TOOL()
 ;back to original pos for mouse, screen mode
 coordmode, mouse
 mousemove, %xo%, %yo%
@@ -163,7 +164,7 @@ LAYER_REDBOX()
 WinActivate, ESPRIT
 list_search.layer("270DEG 마진", "combobox2", "ESPRIT")
 DEG.DEG270()
-ICON.TOOL("ICON_MARGIN_LINE.PNG")
+TOOL.MARGIN_TOOL()
 ;back to original pos for mouse, screen mode
 coordmode, mouse
 mousemove, %xo%, %yo%
