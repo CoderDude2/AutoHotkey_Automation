@@ -144,22 +144,6 @@ return
 
 
 
-
-;;;======================   MACRO 4     =============================================
-/*   STOPED ADDED THIS MACRO TO BRODER/MARGIN MACRO
-;; f14 which is "Y" , has been moved to GUI macro with 1 and 1/2 percent
-
-^F14::
-sendinput, ^s
-;sleep, 500
-winactivate, ESPRIT
-IS.RVSEARCH("MACRO4.PNG", 0, 0, 300, 300, 0)
-MOUSECLICK, LEFT, IS.X +10, IS.Y+10
-SLEEP, 200
-SENDINPUT, {ENTER}
-RETURN
-*/
-
 ;; ======================== MACRO 2 =====================================================
 
 ^F24::
@@ -201,15 +185,7 @@ return
 
 
 ;; ========================== ADJUSTMENTS ======================================
-/*
-F22::
-ONE_PERCENT()
-return
 
-F24::
-HALF_PERCENT()
-RETURN
-*/
 ^F23::
 CROSS_NEG_3()
 return
@@ -318,17 +294,6 @@ XButton1::
 sendinput, !s
 return
 
-
-;; ======================= CONNECT DOTS ========================
-/*
-+F13::
-mousemove, click1x, click1y
-sleep, 250
-click
-sleep, 250
-pause
-return
-*/
 
 ;; =====================  FACE INSPECT 2 =====================
 +F14::
