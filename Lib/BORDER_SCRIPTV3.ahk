@@ -1,4 +1,4 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
@@ -64,7 +64,7 @@ mousemove, %xm5%, %ym5%
 coordmode, mouse, window
 send, {WheelDown 3}
 
-ICON.TOOL("ICON_LINE.PNG")
+TOOL.LINE_TOOL()
 
 PAUSE
 ;;;;;;;;=========================================================================
@@ -88,7 +88,7 @@ coordmode, mouse
 mousemove, %xo%, %yo%
 coordmode, mouse, window
 send, {WheelDown 3}
-ICON.TOOL("ICON_LINE.PNG")
+TOOL.LINE_TOOL()
 PAUSE
 ;;;;;;;;=========================================================================
 
@@ -113,7 +113,7 @@ coordmode, mouse
 mousemove, %xo%, %yo%
 coordmode, mouse, window
 send, {WheelDown 3}
-ICON.TOOL("ICON_LINE.PNG")
+TOOL.LINE_TOOL()
 PAUSE
 ;;;;;;;;=========================================================================
 
@@ -137,7 +137,7 @@ coordmode, mouse
 mousemove, %xo%, %yo%
 coordmode, mouse, window
 send, {WheelDown 3}
-ICON.TOOL("ICON_LINE.PNG")
+TOOL.LINE_TOOL()
 PAUSE
 ;;;;;;;;=========================================================================
 
