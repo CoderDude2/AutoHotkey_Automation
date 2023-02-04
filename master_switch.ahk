@@ -1,10 +1,13 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #singleinstance, force
 #include C:\Users\tony\Documents\AutoHotkey\class\class.ahk
 #include C:\Users\tony\Documents\AutoHotkey\class\GUI.ahk
+#include C:\Users\tony\Documents\AutoHotkey\class\VIEWS.ahk
+
+
 
 
 ^F13::Pause
@@ -46,6 +49,16 @@ f18::
 DEG.REAR()
 return
 
+;========================== MOUSE WHEEL SCROLL VIEW =====================
+
+
+^WheelDown::
+gosub increment_10_degrees
+return
+
+^WheelUp::
+gosub decrement_10_degrees
+return
 
 
 
@@ -217,16 +230,12 @@ return
 ;; ==========================  ICON MACROS TOOLSS ================================
 
 !F14::
-;ICON.TOOL("ICON_LINE.PNG")
-
-PostMessage, 0x111, 3019 , , , ESPRIT
+TOOL.LINE_TOOL()
 RETURN
 
 
 !F22::
-;ICON.TOOL("ICON_3DOT.PNG")
-
-PostMessage, 0x111, 3004 , , , ESPRIT
+TOOL.3_DOT()
 ;;  connect dots
 keywait, Alt
 keywait, mbutton
@@ -244,9 +253,7 @@ center_circle_2()
 RETURN
 
 +!F10::
-;ICON.TOOL("icon_snip.png")
-PostMessage, 0x111, 3033 , , , ESPRIT
-
+TOOL.SNIP()
 return
 
 ;;; =========================== REBUILD ============================
@@ -294,15 +301,6 @@ SENDINPUT, X,0
 SENDINPUT, {ENTER}
 RETURN
 
-;; ******* !F22 TAKEN ICON 3DOT ****
-
-;; ======================================******* FILE OPENING SEQUENCE *****==================
-;; DISABLED FOR NOW, FILE SEQUENCE FILE ON DESKTOP DUE TO BUGS FROM RUN AS ADMINISTRATOR
-/*
-!F23::
-FILE_SEQUENCE_v2()
-RETURN
-*/
 
 ;; ========================  ROUGH MILL SCRIPTS 1-3 ==================================
 
@@ -329,15 +327,6 @@ sleep, 250
 click
 sleep, 250
 pause
-return
-*/
-
-;;;============================    FACE INSPECT             ============================
-
-;;; FACE INSPECT 1 AND 2 REPLACED WITH AUTO CHECK
-/*
-^F15::
-FACE_INSPECT()
 return
 */
 
