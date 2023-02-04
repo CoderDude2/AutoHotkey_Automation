@@ -1,4 +1,4 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
@@ -23,6 +23,7 @@ Class deg  ;;; shortcutkeys to deg views
 
 		deg120()
 		{
+
 			WinActivate, ESPRIT
 			wingetclass, deg_class, A
 			control, choose, 19, ComboBox1, ahk_class %deg_class%
@@ -320,7 +321,38 @@ class icon
 }
 
 
+CLASS TOOL{
+	line_tool(){
+		PostMessage, 0x111, 3019 , , , ESPRIT
+	}
 
+
+	MARGIN_TOOL(){
+		PostMessage, 0x111, 3057 , , , ESPRIT
+	}
+
+	3_DOT(){
+		PostMessage, 0x111, 3004 , , , ESPRIT
+	}
+	CIRCLE(){
+		PostMessage, 0x111, 3005 , , , ESPRIT
+	}
+	SNIP(){
+		PostMessage, 0x111, 3033 , , , ESPRIT
+	}
+
+	SIMULATION(){
+		PostMessage, 0x111, 6268 , , , ESPRIT
+	}
+
+	LINE_TOOL_2(){
+		PostMessage, 0x111, 3018 , , , ESPRIT
+	}
+	STOP_SIM(){
+		PostMessage, 0x111, 6276 , , , ESPRIT
+	}
+
+}
 
 
 
