@@ -1,4 +1,4 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
@@ -51,7 +51,7 @@ is.vsearch("blue_background.png", 440, 200, 1630, 1000, 10)
 mouseclick, left, is.x, is.y
 sleep, 30
 DEG.deg0()
-is.vsearch("sim_play.png", 243, 54, 1100, 257, 10)
-mouseclick, left, is.x+10, is.y+10
-
+;is.vsearch("sim_play.png", 243, 54, 1100, 257, 10)
+;mouseclick, left, is.x+10, is.y+10
+TOOL.SIMULATION()
 }
