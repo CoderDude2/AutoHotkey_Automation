@@ -4,9 +4,7 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance, FORCE
 
-
 90_adjust()
-
 {
 KEYWAIT, ALT
 WinActivate, ESPRIT

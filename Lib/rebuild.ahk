@@ -4,15 +4,12 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #singleinstance, force
 
-rebuild()
-
-{
-
-Click, right
-IS.RVSEARCH("REBUILD_ICON_1.PNG", 0, 500, 800, 1300, 25)
-MOUSEMOVE, IS.X, IS.Y+5
+rebuild() {
+    Click, Right
+    IS.RVSEARCH("REBUILD_ICON_1.PNG", 0, 500, 800, 1300, 25)
+    MouseMove, IS.X, IS.Y + 5
 
 
-IS.RVSEARCH("REBUILD_ICON_2.PNG", 0, 500, 800, 1300, 25)
-MOUSECLICK, LEFT, IS.X, IS.Y+5
+    IS.RVSEARCH("REBUILD_ICON_2.PNG", 0, 500, 800, 1300, 25)
+    MouseClick, LEFT, IS.X, IS.Y + 5
 }

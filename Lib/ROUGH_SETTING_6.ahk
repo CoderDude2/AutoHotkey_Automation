@@ -3,7 +3,7 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #singleinstance, force
-#include C:\Users\tony\Documents\AutoHotkey\class\class.ahk
+#include %A_ScriptDir%\class\class.ahk
 
 ROUGH_SETTING_6()
 

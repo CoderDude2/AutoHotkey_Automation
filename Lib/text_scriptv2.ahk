@@ -4,13 +4,12 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #singleinstance, force
 
-
 text_scriptv2()
 {
 
 pause,  off
 
-ImageSearch, x1, y1, 0, 0, 1000, 1000, C:\Users\tony\Documents\AutoHotkey\images\text_layer.png
+ImageSearch, x1, y1, 0, 0, 1000, 1000, %A_ScriptDir%\images\text_layer.png
 if(errorlevel = 0)
 {
 msgbox, alreaddy have text

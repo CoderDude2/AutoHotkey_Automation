@@ -3,12 +3,10 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #singleinstance, force
-#include C:\Users\tony\Documents\AutoHotkey\class\class.ahk
-#include C:\Users\tony\Documents\AutoHotkey\class\GUI.ahk
-#include C:\Users\tony\Documents\AutoHotkey\class\VIEWS.ahk
 
-
-
+#include %A_ScriptDir%\class\class.ahk
+#include %A_ScriptDir%\Documents\AutoHotkey\class\GUI.ahk
+#include %A_ScriptDir%\class\VIEWS.ahk
 
 ^F13::Pause
 return
@@ -18,40 +16,32 @@ return
 :*:3-2::3-2. ROUGH_ENDMILL_120DEG
 :*:3-3::3-3. ROUGH_ENDMILL_240DEG
 
-
-
 ;;-------------------- RIGHT CLICK / DOUBLE CLICK ---------------------------
-
-rbutton::
-click, 2
+RButton::
+Click, 2
 return
-
-
-
 
 ;======================     SELECTING DEGREES        =====================
-f13::
-DEG.deg0()
-Return
-f14::
-DEG.deg90()
+F13::
+Deg.deg0()
 return
-f15::
-DEG.DEG180()
+F14::
+Deg.deg90()
 return
-f16::
-DEG.DEG270()
+F15::
+Deg.deg180()()
 return
-f17::
-DEG.FACE()
+F16::
+Deg.deg270()()
 return
-f18::
-DEG.REAR()
+F17::
+Deg.face()()
+return
+F18::
+Deg.rear()
 return
 
 ;========================== MOUSE WHEEL SCROLL VIEW =====================
-
-
 ^WheelDown::
 gosub increment_10_degrees
 return
@@ -59,50 +49,41 @@ return
 ^WheelUp::
 gosub decrement_10_degrees
 return
-
-
-
 ;;================================= EDONG ==============================
-
 ;; =============  UP IS NOW ROTATE TEXT 90  ======
-UP::
+Up::
 TEXT_90()
 return
 
-DOWN::
-EDONG.ROTATE(4)
+Down::
+edong.rotate(4)
 return
 
-LEFT::
-EDONG.SIDE(-.1)
+Left::
+edong.side(-.1)
 return
 
-RIGHT::
-EDONG.SIDE(.5)
+Right::
+edong.side(.5)
 RETURN
 
 !F17::
-EDONG.REALDOWN(-.5)
+edong.realDown(-.5)
 return
 
 !F18::
 center_circle_2()
 RETURN
 
-
-
 ;;========================    BORDER ICON   ============================
-
 ;border icon - flat double side 11/1
-f19::
+F19::
 border_icon.flatdoubleside()
 return
 
-
-f20::
+F20::
 border_icon.center_border_3()
 return
-
 
 +!F11::
 border_icon.slant_circle()
@@ -112,141 +93,102 @@ return
 slant_circle_script()
 return
 
-
 +F13::
 BORDERFLAT_AUTO()
 return
 
-
 ;;==========================  REDBOX    ==============================
-f23::
+F23::
 layer_redbox()
 return
-
-
 
 ;;==================   BORDER / MARGIN LINE SCRIPT      =====================
 F21::
 border_scriptv3()
 margin_line_script()
-SLEEP, 100
+Sleep, 100
 ;; PUTTING IN THE MACRO 4 SCRIPT BELOW
-sendinput, ^s
+SendInput, ^s
 ;sleep, 500
-winactivate, ESPRIT
+WinActivate, ESPRIT
 IS.RVSEARCH("MACRO4.PNG", 0, 0, 300, 300, 0)
-MOUSECLICK, LEFT, IS.X +10, IS.Y+10
-SLEEP, 200
-SENDINPUT, {ENTER}
-RETURN
+MouseClick, Left, IS.X + 10, IS.Y + 10
+Sleep, 200
+SendInput, {Enter}
 return
 
-
-
-
 ;; ======================== MACRO 2 =====================================================
-
 ^F24::
 MACRO2()
 return
 
-
-
-
-
-
-
 ;;; ===============================    SELECT FOUR'S    =================================
-^f16::
+^F16::
 select_back_four()
 return
-
 
 ^F17::
 select_back_four_reset()
 return
-
 
 ;;;; ============================== TEXT SCRIPT  ==========================================
 ^F19::
 TEXT_SCRIPTv2()
 return
 
-
-
-
 ;; =========================  FINAL INSPECT   ======================================
-
 ^F20::
 FINAL_INSPECT()
 return
 
-
-
-
 ;; ========================== ADJUSTMENTS ======================================
-
 ^F23::
 CROSS_NEG_3()
 return
 
-
-
-
-
-
 ;;; ======================== CENTER CIRCLE MACRO =======================
-
-!f13::
+!F13::
 center_circle()
 return
 
-
-
 ;; ==========================  ICON MACROS TOOLSS ================================
-
 !F14::
-TOOL.LINE_TOOL()
-RETURN
-
+Tool.line_tool()()
+return
 
 !F22::
-TOOL.3_DOT()
+Tool.3_dot()
 ;;  connect dots
-keywait, Alt
-keywait, mbutton
-Keywait, LButton, d
+KeyWait, Alt
+KeyWait, mbutton
+KeyWait, LButton, d
 MouseGetPos, 3x, 3y
 KeyWait, LButton, U
-PAUSE
+Pause
 BlockInput, On
-sendINPUT, {click, %3x%, %3y%}
-SLEEP, 100
+SendInput, {Click, %3x%, %3y%}
+Sleep, 100
 BlockInput, Off
 SendInput, {esc}
-SLEEP, 100
+Sleep, 100
 center_circle_2()
-RETURN
+return
 
 +!F10::
-TOOL.SNIP()
+Tool.snip()
 return
 
 ;;; =========================== REBUILD ============================
 ;;; changed for now to edong move up 1.25
 !F15::
-REBUILD()
-RETURN
-
-
-
-;;; ========================= RESET ONE ================================
-
-+F15::
-RESET_ONE()
+rebuild()
 return
 
-
+;;; ========================= RESET ONE ================================
++F15::
+reset_one()
+return
+reset_one()
 
 ;; ==================== OPEN FILE =====================================
 ;; DISABLED DUE TO ADMINISTRATOR BUG - RUN MANUALLY
@@ -259,7 +201,6 @@ return
 ;; ****   !F17 TAKEN EDONG.REALDOWN
 ;; ****    !F18 TAKEN EDONG -0.5
 
-
 ;; ====================  FRONT SETTINGS FOR MANUAL FRONG TURNIN =====================
 !F19::
 FRONT_SETTING()
@@ -271,39 +212,31 @@ FRONT_SETTING_SHORT()
 return
 */
 
-
 !F21::
-SENDINPUT, X,0
-SENDINPUT, {ENTER}
-RETURN
-
+SendInput, X, 90
+SendInput, {Enter}
+return
 
 ;; ========================  ROUGH MILL SCRIPTS 1-3 ==================================
-
 !F24::
 ROUGH_V2()
-RETURN
+return
 
 ;; ========================= WIRE FRAME VIEW ==================================
 XButton2::
-
-sendinput, !a
+SendInput, !a
 return
 
 XButton1::
-sendinput, !s
+SendInput, !s
 return
-
 
 ;; =====================  FACE INSPECT 2 =====================
 +F14::
 FACE_INSPECT_auto()
 return
 
-
 ;; =======================  ROUGH SETTINGS 6, -6 AND 7, -7 & 2ND LAYER ADD ===============================
-
-
 ^F21::
 ROUGH_SETTING_6()
 return
@@ -312,37 +245,26 @@ return
 ROUGH_SETTING_7()
 return
 
-
 +!F9::
 ROUGH_SETTING_2ND()
 return
 
-
 ;; ========================  FILE CLOSE ======================================
-
 +F16::
 FILE_CLOSE()
 return
-
 
 ;; =======================   FILE OPEN  ========================================
 +!F13::
 PostMessage, 0x111, 57601,,, ESPRIT
 return
 
-
-
 ;; =================== SPEED ANIMATION ===============================
-
-
 +F17::
 SPEED_ANIMATION()
-RETURN
-
-
+return
 
 ;; ==========================================  90 ADJUST BEGINNING MACRO 1  ======================================================
-
 +!F14::
 90_ADJUST()
 return
@@ -354,7 +276,6 @@ return
 EDONG_UP_1()
 return
 
-
 ;; edong 2 up is changed to moove edong line 1.25  ==== SHIFT R
 +!F16::
 EDONG.REALDOWN(1.25)
@@ -365,28 +286,20 @@ return
 LINE_UP_FRAME()
 return
 
-
-
 ;; ================================================= HIGHLIGHT SELECT WIRE / SELECT ALL WIRE =============================
-
-
 +!F18::
 SELECT_WIRE()
 return
 
-
-
 ;; ==========================================  MOVE ROUGH MENU ==================================
 +!F19::
 MOVE_ROUGH_MENU()
-RETURN
-
-
+return
 
 ;; ===================================  NC FILE RESTORE AND END PAGE ================================
 +!F20::
 nc_file()
-RETURN
+return
 
 /*
 ^F24::
@@ -395,20 +308,14 @@ RETURN
 
 */
 
-
 ;;;================================   2ND GUI ==================================================
-
 ^F14::
 gosub, LAUNCH_GUI2
-RETURN
+return
 
 ;;; ==================================   SHIFT SELECT AND DELETE ============================
-
-
 +!F21::
-RETURN
-
-
+return
 
 ^F15::
 macro4_skip()
@@ -425,12 +332,6 @@ return
 ;;; ====================++++++++++++++++++ FREEEEEEEE ++++++++++++++++++++++++++
 ;;;
 /*
-
-
-
-
-
-
 +!F3::
 ONE_PERCENT_3()
 return

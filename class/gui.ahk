@@ -15,11 +15,8 @@ south_var := 0
 west_var := 0
 east_var :=0
 
-
 ;; =====================			GUI INTERFACE			===========================
-
 gui, 1:color, 34b4eb
-
 gui, 1:+alwaysontop
 gui, 1:show, w500 h80 x1150 y70,      =]
 gui, 1:add, button, x2 y2 w70 h60 Gcopy_files, COPY FILES!
@@ -28,10 +25,7 @@ gui, 1:add, button, x160 y2 w70 h60 Gdel_bak, DEL BAK!
 gui, 1:add, button, x280 y2 w70 h50 GROUGH_3, ROUGH 3
 gui, 1:add, button, x360 y2 w70 h50 GROUGH_8, ROUGH 8 -8
 ;gui, add, text, x100 y10, yes
-
 return
-
-
 
 ;; ======================   GUI INTERFACE 2 ==============================================
 launch_gui2:
@@ -42,9 +36,7 @@ gui, 2:color, , AQUA
 gui, 2:+alwaysontop
 gui, 2:+lastfound
 
-
-
-;; ========================   getting coordinates to show GUI INTERFACE ON CORRECT INSTANCE ===============================
+;; ========================   Getting coordinates to show GUI interface on correct instance ===============================
 coordmode, mouse, screen
 MouseGetPos, gui2x, gui2y
 coordmode, mouse, relative
@@ -64,36 +56,26 @@ gui, 2:add, edit, X180 y10 w100 vnorthedit,
 gui, 2:add, button, x130 y50 w70 h50 gnorth1, 1
 gui, 2:add, button, x200 y50 w70 h50 gnorth2, 0.5
 
-
 ;===== SOUTH BUTTONS
 gui, 2:add, edit, X180 y220 w80 vsouthedit ,
 gui, 2:add, button, x130 y170 w70 h50 gsouth1, 1
 gui, 2:add, button, x200 y170 w70 h50 gsouth2, 0.5
-
-
 
 ;===== WEST BUTTONS
 gui, 2:add, edit, X45 y75 w80 VWESTEDIT
 gui, 2:add, button, x25 y110 w70 h50 GWEST1, 1
 gui, 2:add, button, x95 Y110 w70 h50 GWEST2, 0.5
 
-
 ;===== EAST BUTTONS
 gui, 2:add, edit, X300 y75 w80 VEASTEDIT
 gui, 2:add, button, x240 y110 w70 h50 GEAST1, 1
 gui, 2:add, button, x310 y110 w70 h50 GEAST2, 0.5
-
-
-
 
 ;; ======== EXECUTE BUTTON  ===========
 
 GUI, 2:ADD, BUTTON, X180 Y110 W50 H50 GEXECUTE, X
 
 return
-
-
-
 
 ;;======================= GOSUB VARIABLES =========================
 north1:
@@ -138,8 +120,6 @@ EAST2:
 EAST_VAR := .005   ;;; setting 1 percen
 guicontrol,, EASTEDIT, %EAST_VAR%
 return
-
-
 
 ;;; =======================  EXECUTE ----  BUTTON VARIABLES PASSED INTO FUNCTION ===============================
 
