@@ -6,7 +6,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 #include %A_ScriptDir%\class\class.ahk
 #include %A_ScriptDir%\Documents\AutoHotkey\class\GUI.ahk
-#include %A_ScriptDir%\class\VIEWS.ahk
+#include %A_ScriptDir%\class\views.ahk
 
 ^F13::Pause
 return

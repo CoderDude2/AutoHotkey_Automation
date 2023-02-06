@@ -4,8 +4,7 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance, force
 
-class deg  ;;; shortcutkeys to deg views
-{
+class Deg  {      ;;; shortcutkeys to deg views
     deg0() {
         WinActivate, ESPRIT
         WinGetClass, deg_class, A
@@ -68,7 +67,7 @@ class deg  ;;; shortcutkeys to deg views
     }
 }
 
-class edong {
+class Edong {
     down() {
         PostMessage, 0x111, 57634,,, ESPRIT
         WinWaitActive, ahk_class #32770
@@ -125,7 +124,7 @@ class edong {
         SendInput, {Enter}
     }
 
-    realDown(val) {
+    real_down(val) {
         WinActivate, ESPRIT
         PostMessage, 0x111, 57634,,, ESPRIT
         WinWaitActive, ahk_class #32770
