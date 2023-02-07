@@ -107,7 +107,7 @@ return
 
 ;;==================   BORDER / MARGIN LINE SCRIPT      =====================
 F21::
-border_scriptv3()
+border_scriptV3()
 margin_line_script()
 Sleep, 100
 ;; PUTTING IN THE MACRO 4 SCRIPT BELOW

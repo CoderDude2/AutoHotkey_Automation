@@ -4,7 +4,7 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance, FORCE
 
-BORDER_SCRIPT() {
+border_script() {
     ;; INITIAL SETUP******************
     ;; CLOSE CHECK ROUGH SCRIPT
     WinClose, Check Rough ML & Create Border Solid
@@ -27,7 +27,7 @@ BORDER_SCRIPT() {
     MouseMove, %xo%, %yo%
     Send, {WheelDown 3}
     ;set back to window coord mode
-    CoordMode, <ouse, window
+    CoordMode, Mouse, window
     Pause
 
     ;;GET ORIGINAL MOUSE POS  마진
