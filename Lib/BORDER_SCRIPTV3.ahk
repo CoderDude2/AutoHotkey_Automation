@@ -4,149 +4,133 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance, FORCE
 
+border_scriptV3() {
+    ;; INITIAL SETUP******************
+    ;; CLOSE CHECK ROUGH SCRIPT
 
-BORDER_SCRIPTV3()
+    ;;; GETTING COORDINATES TO WINMOVE CORRECT INSTANCE FOR MACRO 5
+    CoordMode, Mouse			; defaults to entire screen mode
+    MouseGetPos, xm5, ym5	;; m5 stands for macro 5..
+    CoordMode, Mouse, window	;; sets back to relative window
 
-{
-;; INITIAL SETUP******************
-;; CLOSE CHECK ROUGH SCRIPT
-
-;;; GETTING COORDINATES TO WINMOVE CORRECT INSTANCE FOR MACRO 5
-coordmode, mouse			; defaults to entire screen mode
-mousegetpos, xm5, ym5	;; m5 stands for macro 5..
-coordmode, mouse, window	;; sets back to relative window
-
-
-
-
-winclose, Check Rough ML & Create Border Solid
-winactivate, ESPRIT
-is.vsearch("blue_background.png", 440, 200, 1630, 1000, 10)
-mouseclick, left, is.x, is.y
+    WinClose, Check Rough ML & Create Border Solid
+    WinActivate, ESPRIT
+    IS.vsearch("blue_background.png", 440, 200, 1630, 1000, 10)
+    MouseClick, Left, IS.x, IS.y
 
 
-is.vsearch("MACRO5.png", 0, 0, 330, 330, 10)
-mouseclick, left, is.x+10, is.y+10
-WinWaitActive, [5]DEG 경계소재 & 마진
+    IS.vsearch("MACRO5.png", 0, 0, 330, 330, 10)
+    MouseClick, Left, Is.x + 10, Is.y + 10
+    WinWaitActive, [5]DEG 경계소재 & 마진
 
-;; 823, 2556, 4277, -- borders of the 3 windows
-if (xm5 < 1705 )
-{
-WINMOVE, [5]DEG 경계소재 & 마진,, 485, 189
-}
-if (xm5 > 1705 && xm5 < 3410 )
-{
-WINMOVE, [5]DEG 경계소재 & 마진,, 2170, 177
-}
-if (xm5 > 3410)
-{
-WINMOVE, [5]DEG 경계소재 & 마진,, 3870, 177
-}
+    ;; 823, 2556, 4277, -- borders of the 3 windows
+    if (xm5 < 1705 ) {
+        WinMove, [5]DEG 경계소재 & 마진,, 485, 189
+    }
+    if (xm5 > 1705 && xm5 < 3410 ) {
+        WinMove, [5]DEG 경계소재 & 마진,, 2170, 177
+    }
+    if (xm5 > 3410) {
+        WinMove, [5]DEG 경계소재 & 마진,, 3870, 177
+    }
 
+    WinWaitActive, [5]DEG 경계소재 & 마진
+    MouseClick, Left, 66, 135
+    ;SLEEP, 50
+    MouseClick, Left, 186, 283
+    Sleep, 30
+    SendInput, ^a
+    Sleep, 30
+    SendInput, -7
+    Sleep, 30	;; THIS PAUSE IMPORTANT, PREVIOUS INPUT OF '-7' WON'T GET INPUT BECAUSE NEXT LINE DEG.DEG90() EXECUTES TOO FAST
+    Deg.deg90()
+    WinActivate, ESPRIT
 
+    CoordMode, Mouse
+    MouseMove, %xm5%, %ym5%
+    ;set back to window coord mode
+    CoordMode, Mouse, window
+    Send, {WheelDown 3}
 
+    Tool.line_tool()()
 
-WinWaitActive, [5]DEG 경계소재 & 마진
-mouseclick, left, 66, 135
-;SLEEP, 50
-MOUSECLICK, LEFT, 186, 283
-SLEEP, 30
-SENDINPUT, ^a
-sleep, 30
-sendinput, -7
-sleep, 30	;; THIS PAUSE IMPORTANT, PREVIOUS INPUT OF '-7' WON'T GET INPUT BECAUSE NEXT LINE DEG.DEG90() EXECUTES TOO FAST
-DEG.DEG90()
-WINACTIVATE, ESPRIT
+    Pause
+    ;;;;;;;;=========================================================================
 
-coordmode, mouse
-mousemove, %xm5%, %ym5%
-;set back to window coord mode
-coordmode, mouse, window
-send, {WheelDown 3}
+    CoordMode, Mouse
+    MouseGetPos, xo, yo
+    CoordMode, Mouse, window
 
-TOOL.LINE_TOOL()
+    WinActivate, [5]DEG 경계소재 & 마진
+    MouseClick, Left, 183, 135
+    ;SLEEP, 50
+    MouseClick, Left, 186, 283
+    Sleep, 30
+    SendInput, ^a
+    Sleep, 30
+    SendInput, -7
+    Sleep, 30
+    Deg.deg180()
+    WinActivate, ESPRIT
+    CoordMode, Mouse
+    MouseMove, %xo%, %yo%
+    CoordMode, Mouse, window
+    Send, {WheelDown 3}
+    Tool.line_tool()
+    Pause
+    ;;;;;;;;=========================================================================
 
-PAUSE
-;;;;;;;;=========================================================================
+    CoordMode, Mouse
+    MouseGetPos, xo, yo
+    CoordMode, Mouse, window
 
-coordmode, mouse
-mousegetpos, xo, yo
-coordmode, mouse, window
+    WinActivate, [5]DEG 경계소재 & 마진
+    MouseClick, Left, 66, 181
+    ;SLEEP, 50
+    MouseClick, Left, 186, 283
+    Sleep, 30
+    SendInput, ^a
+    Sleep, 30
+    SendInput, -7
+    Sleep, 30
+    Deg.deg270()
+    WinActivate, ESPRIT
+    CoordMode, Mouse
+    MouseMove, %xo%, %yo%
+    CoordMode, Mouse, window
+    Send, {WheelDown 3}
+    Tool.line_tool()
+    pause
+    ;;;;;;;;=========================================================================
 
-winactivate, [5]DEG 경계소재 & 마진
-mouseclick, left, 183, 135
-;SLEEP, 50
-MOUSECLICK, LEFT, 186, 283
-SLEEP, 30
-SENDINPUT, ^a
-sleep, 30
-sendinput, -7
-sleep, 30
-DEG.DEG180()
-WINACTIVATE, ESPRIT
-coordmode, mouse
-mousemove, %xo%, %yo%
-coordmode, mouse, window
-send, {WheelDown 3}
-TOOL.LINE_TOOL()
-PAUSE
-;;;;;;;;=========================================================================
+    CoordMode, Mouse
+    MouseGetPos, xo, yo
+    CoordMode, Mouse, window
 
+    WinActivate, [5]DEG 경계소재 & 마진
+    MouseClick, Left, 184, 181
+    ;SLEEP, 50
+    MouseClick, Left, 186, 283
+    Sleep, 30
+    SendInput, ^a
+    Sleep, 30
+    SendInput, -7
+    Sleep, 30
+    Deg.deg0()
+    WinActivate, ESPRIT
+    CoordMode, Mouse
+    MouseMove, %xo%, %yo%
+    CoordMode, Mouse, window
+    Send, {WheelDown 3}
+    Tool.line_tool()
+    Pause
+    ;;;;;;;;=========================================================================
 
+    ;; CLOSE MACRO 5
+    WinActivate, [5]DEG 경계소재 & 마진
+    MouseClick, Left, 231, 15
 
-coordmode, mouse
-mousegetpos, xo, yo
-coordmode, mouse, window
-
-winactivate, [5]DEG 경계소재 & 마진
-mouseclick, left, 66, 181
-;SLEEP, 50
-MOUSECLICK, LEFT, 186, 283
-SLEEP, 30
-SENDINPUT, ^a
-sleep, 30
-sendinput, -7
-sleep, 30
-DEG.DEG270()
-WINACTIVATE, ESPRIT
-coordmode, mouse
-mousemove, %xo%, %yo%
-coordmode, mouse, window
-send, {WheelDown 3}
-TOOL.LINE_TOOL()
-PAUSE
-;;;;;;;;=========================================================================
-
-
-coordmode, mouse
-mousegetpos, xo, yo
-coordmode, mouse, window
-
-winactivate, [5]DEG 경계소재 & 마진
-mouseclick, left, 184, 181
-;SLEEP, 50
-MOUSECLICK, LEFT, 186, 283
-SLEEP, 30
-SENDINPUT, ^a
-sleep, 30
-sendinput, -7
-sleep, 30
-DEG.DEG0()
-WINACTIVATE, ESPRIT
-coordmode, mouse
-mousemove, %xo%, %yo%
-coordmode, mouse, window
-send, {WheelDown 3}
-TOOL.LINE_TOOL()
-PAUSE
-;;;;;;;;=========================================================================
-
-
-;; CLOSE MACRO 5
-WinActivate, [5]DEG 경계소재 & 마진
-MOUSECLICK, LEFT, 231, 15
-
-coordmode, mouse
-mousemove, %xo%, %yo%
-coordmode, mouse, window
+    CoordMode, Mouse
+    MouseMove, %xo%, %yo%
+    CoordMode, Mouse, window
 }
