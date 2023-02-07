@@ -5,11 +5,14 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #singleinstance, force
 
 #include %A_ScriptDir%\class\class.ahk
-#include %A_ScriptDir%\Documents\AutoHotkey\class\GUI.ahk
+#include %A_ScriptDir%\class\gui.ahk
 #include %A_ScriptDir%\class\views.ahk
 
 ^F13::Pause
 return
+
+#IfWinExist ahk_exe esprit.exe
+#IfWinActive ahk_exe esprit.exe
 
  ;;; HOTSTRING
 :*:3-1::3-1. ROUGH_ENDMILL_0DEG
@@ -43,32 +46,32 @@ return
 
 ;========================== MOUSE WHEEL SCROLL VIEW =====================
 ^WheelDown::
-gosub increment_10_degrees
+increment_10_degrees()
 return
 
 ^WheelUp::
-gosub decrement_10_degrees
+decrement_10_degrees()
 return
-;;================================= EDONG ==============================
+;;================================= Edong ==============================
 ;; =============  UP IS NOW ROTATE TEXT 90  ======
 Up::
 TEXT_90()
 return
 
 Down::
-edong.rotate(4)
+Edong.rotate(4)
 return
 
 Left::
-edong.side(-.1)
+Edong.side(-.1)
 return
 
 Right::
-edong.side(.5)
+Edong.side(.5)
 RETURN
 
 !F17::
-edong.realDown(-.5)
+Edong.realDown(-.5)
 return
 
 !F18::
@@ -179,7 +182,7 @@ Tool.snip()
 return
 
 ;;; =========================== REBUILD ============================
-;;; changed for now to edong move up 1.25
+;;; changed for now to Edong move up 1.25
 !F15::
 rebuild()
 return
@@ -198,15 +201,15 @@ OPEN_FILE()
 return
 */
 
-;; ****   !F17 TAKEN EDONG.REALDOWN
-;; ****    !F18 TAKEN EDONG -0.5
+;; ****   !F17 TAKEN Edong.REALDOWN
+;; ****    !F18 TAKEN Edong -0.5
 
 ;; ====================  FRONT SETTINGS FOR MANUAL FRONG TURNIN =====================
 !F19::
 FRONT_SETTING()
 return
 
-/*;; for now edong 1 up
+/*;; for now Edong 1 up
 !F20::
 FRONT_SETTING_SHORT()
 return
@@ -269,16 +272,16 @@ return
 90_ADJUST()
 return
 
-;; ============================================= EDONG UP 1 AND 2 =====================================================
+;; ============================================= Edong UP 1 AND 2 =====================================================
 ;;was +!f15
-;; EDONG UP 1 IS NO LONGER MOVE UP 1, NO ADJUST AND ONLY FRONT TURNING
+;; Edong UP 1 IS NO LONGER MOVE UP 1, NO ADJUST AND ONLY FRONT TURNING
 !f20::
 EDONG_UP_1()
 return
 
-;; edong 2 up is changed to moove edong line 1.25  ==== SHIFT R
+;; Edong 2 up is changed to moove Edong line 1.25  ==== SHIFT R
 +!F16::
-EDONG.REALDOWN(1.25)
+Edong.REALDOWN(1.25)
 return
 
 ;; ============================================= WIRE LINE UP =====================================================

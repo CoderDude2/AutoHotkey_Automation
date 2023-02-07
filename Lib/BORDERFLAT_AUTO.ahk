@@ -8,7 +8,7 @@ borderflat_auto() {
     MouseGetPos, xo, yo
     CoordMode, Mouse, window
 
-    Tool.line_tool_2()()
+    Tool.line_tool_2()
     WinActivate, ESPRIT
     MouseClick, Left, 530, 1300
     Sleep, 50
