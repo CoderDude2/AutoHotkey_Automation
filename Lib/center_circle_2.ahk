@@ -15,7 +15,7 @@ center_circle_2() {
     MouseMove, IS.x + 4, IS.y + 2
     Send, +{Click}
     Sleep, 100
-    Edong.side(-.5)
+    Edong.side(-0.5)
     Sleep, 200
     border_icon.center_border_3()
 }
