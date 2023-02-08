@@ -3,12 +3,12 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #singleinstance, force
-#include %A_ScriptDir%\class\class.ahk
+;#include %A_ScriptDir%\class\class.ahk
 
 TEXT_90() {
 	WinWaitActive, Engraving Program Number Text
 	WinWaitActive, Engraving Program Number Text
-	SendInput, {TAB}{TAB}{TAB}{TAB}{TAB}
+	SendInput, {TAB}{TAB}{TAB}{Tab}{Tab}
 	SendInput, 90
 	SendInput, {TAB}{TAB}{TAB}{TAB}
 	SendInput, {SPACE}
@@ -26,3 +26,5 @@ TEXT_90() {
 	Sleep, 100
 	Click, 104, 240
 }
+
+TEXT_90()
