@@ -13,4 +13,7 @@ class window_finder{
     }
 }
 
-window_finder.get_window_limitation_position()
+#IfWinExist [5]DEG 경계소재 & 마진
+WinActivate, [5]DEG 경계소재 & 마진
+Sleep 1000
+MouseMove, 67, 135, 0

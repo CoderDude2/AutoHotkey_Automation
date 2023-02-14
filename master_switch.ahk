@@ -66,7 +66,6 @@ return
 decrement_90_degrees()
 return
 ; ========================== WIRE FRAME VIEW ====================================
-
 wireframe_is_active := false
 
 !a::
@@ -82,7 +81,6 @@ wireframe_is_active := true
 return
 
 ; ==========================  Controls ==========================================
-
 +c::
 tools.circle_tool()
 return
